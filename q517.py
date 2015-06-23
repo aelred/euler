@@ -1,5 +1,7 @@
 import math
 
+from util import primes
+
 
 def g(a, x):
     y_max = math.ceil(x / a - 1) + 1
@@ -19,22 +21,6 @@ def g(a, x):
 
 def G(n):
     return g(n ** 0.5, n)
-
-
-def primes(end, start=0):
-    sieve = [True for n in range(end)]
-
-    enum = enumerate(sieve)
-    next(enum)
-    next(enum)
-
-    for n, is_prime in enum:
-        if is_prime:
-            if n > start:
-                yield n
-
-            for mult in range(2 * n, end, n):
-                sieve[mult] = False
 
 
 if __name__ == '__main__':
